@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\egitim_portali_final.props" />
+</Project>

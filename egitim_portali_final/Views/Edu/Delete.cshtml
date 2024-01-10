@@ -1,0 +1,15 @@
+﻿﻿@{
+    ViewData["Title"] = "Delete";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutAdminLTE.cshtml";
+}
+
+@model EducationModel
+<h1>Eğitimi Sil</h1>
+<h3>"<b>@Model.Name</b>" Adlı Eğitim Silinecektir Onaylıyor musunuz?</h3>
+<form asp-controller="Edu" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <a asp-action="Index" class="btn btn-outline-secondary">Geri Dön</a>
+    <input type="submit" value="Sil" class="btn btn-outline-danger" />
+</form>

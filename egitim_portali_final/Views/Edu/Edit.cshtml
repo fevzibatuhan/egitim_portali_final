@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdminLTE.cshtml";
+}
+@model EducationModel
+
+<h2>Eğitimi Düzenle</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Eğitimin Adı</label>
+                <input type="text" class="form-control" asp-for="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Eğitimin Açıklaması</label>
+                <textarea rows="3" class="form-control" asp-for="Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Link" class="form-label">Eğitim Videosunun Linki</label>
+                <textarea rows="3" class="form-control" asp-for="Link"></textarea>
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Link" class="form-label">Eğitimcinin Kullanıcı Adı</label>
+                <textarea rows="3" class="form-control" asp-for="TeachersUserName"></textarea>
+                <span asp-validation-for="TeachersUserName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input type="hidden" asp-for="Id" />
+                <a asp-action="Index" class="btn btn-outline-secondary">Geri Dön</a>
+                <input type="submit" value="Güncelle" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}

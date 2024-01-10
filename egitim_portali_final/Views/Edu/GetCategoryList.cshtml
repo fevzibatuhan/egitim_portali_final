@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "GetCategoryList";
+    Layout = "~/Views/Shared/_LayoutAdminLTE.cshtml";
+}
+@model List<Category>
+<a asp-action="CategoryAdd" class="btn btn-primary">Kategori Ekle</a>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kategori Id</th>
+            <th>Kategori Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.Name</td>
+            </tr>
+
+        }
+    </tbody>
+</table>

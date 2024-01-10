@@ -1,0 +1,38 @@
+﻿﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdminLTE.cshtml";
+}
+
+
+@model List<EducationModel>
+
+<a asp-action="Insert" class="btn btn-outline-primary">Ekle</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Sıra Numarası</th>
+            <th scope="col">Eğitim Adı</th>
+            <th scope="col">Eğitim Açıklaması</th>
+            <th scope="col">Eğitimin Kategorisi</th>
+            <th scope="col">Eğitmen</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var edu in Model)
+        {
+            <tr>
+                <td>@edu.Id</td>
+                <td>@edu.Name</td>
+                <td>@edu.Description</td>              
+                <td>@edu.CategoryName</td>
+                <td>@edu.TeachersUserName</td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@edu.Id" class="btn btn-outline-info">Detay</a>
+                    <a asp-action="Edit" asp-route-id="@edu.Id" class="btn btn-outline-warning">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@edu.Id" class="btn btn-outline-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "IndexForUser";
+}
+
+@model List<EducationModel>
+
+<h3>Eğitimler</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Eğitim Adı</th>
+            <th scope="col">Eğitim Açıklaması</th>
+            <th scope="col">Eğitim Kategorisi</th>
+            <th scope="col">Eğitmen</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var edu in Model)
+        {
+            <tr>
+                <td>@edu.Name</td>
+                <td>@edu.Description</td>
+                <td>@edu.CategoryName</td>
+                <td>@edu.TeachersUserName</td>
+                <td>
+                    <a asp-action="DisplayForUser" asp-route-id="@edu.Id" class="btn btn-primary">Eğitimi Görüntüle</a>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>

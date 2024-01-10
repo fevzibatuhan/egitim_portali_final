@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Insert";
+}
+
+@model EducationModel
+<h2>Eğitim Ekle</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Insert" asp-controller="Edu" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Eğitim Adı</label>
+                <input type="text" class="form-control" asp-for="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Eğitim Açıklama</label>
+                <textarea rows="3" class="form-control" asp-for="Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+
+                <label asp-for="Video"></label>
+                <input asp-for="Video" class="form-control" type="file" />
+                <span asp-validation-for="Video" class="text-danger"></span>
+
+            </div>
+            <div>
+                <label>Kategori Seçiniz </label>
+                @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.kategoriname)
+            </div>
+            <br />
+            <div>
+                <label>Eğitimcinin Kullanıcı Adı</label>
+                <input type="text" class="form-control" asp-for="TeachersUserName" />
+                <span asp-validation-for="TeachersUserName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="mb-3">
+                <a asp-action="Index" class="btn btn-outline-secondary">Geri Dön</a>
+                <input type="submit" value="Kaydet" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}
